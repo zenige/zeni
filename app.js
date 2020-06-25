@@ -16,8 +16,8 @@ const   express = require("express"),
         uploadpicRoutes = require('./routes/upload'),
         upsaleto = require('./routes/upsale');
        
- 
 
+        const PORT = process.env.PORT || 3000;
 const   app = express();
 
 mongoose.connect('mongodb+srv://as77907397:028024102@cluster0-bnq0d.mongodb.net/<Cluster0>?retryWrites=true&w=majority', {useNewUrlParser: true});
@@ -56,6 +56,6 @@ app.use('/upsale',upsaleto);
 
 
 
-app.listen(3000,function(req,res){
-    console.log('EduTarot has started!');
+app.listen(PORT, () => {
+    console.log("Server is ready on port :${ PORT }");
 });
