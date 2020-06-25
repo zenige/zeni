@@ -1,6 +1,7 @@
 const zeni = require('../models/zeni');
 const report = require('../models/report');
 const { search } = require('.');
+const user = require('../models/user');
 
 const express = require('express'),
       router = express.Router();
@@ -260,17 +261,26 @@ router.post("/zeni/report/:id",middleware.isLoggedIn, function(req,res){
   
 });
 
-router.post("/zeni/pay",middleware.isLoggedIn, function(req,res){
+
+
+router.post("/zeni/download/:id",middleware.isLoggedIn, function(req,res){
         if(req.user.coin>=10){
+            console.log("dasdasdas"+req.params.id);
+            req.user.bought = req.user.bought+1;
+            var sold = req.body.sold;
+         
           req.user.coin = req.user.coin-10;
+          
+          zeni.findByIdAndUpdate(req.params.id,{sold:sold},function(err,updatePic){
+ 
+          });
+          }
           req.user.save(function(err,success){
           
             res.redirect("back");
           });
-        }
-        else{
-            
-             }
+        
+       
 
 });
 

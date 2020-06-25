@@ -6,6 +6,8 @@ const express = require('express'),
       Report = require('../models/report'),
       middleware = require('../middleware'),
       User = require('../models/user');
+const zeni = require('../models/zeni');
+
 
 router.get('/',function(req,res){
     res.render('welcome');
@@ -39,7 +41,7 @@ router.get('/Home', function(req,res){
 });
 
 router.post('/signup', function(req,res){
-    User.register(new User({username: req.body.username,mail: req.body.mail,Firstname: req.body.Firstname,rank:"user",coin:"0",free:"3",count:"0",Lastname: req.body.Lastname,imname:"profile.jpeg"}), req.body.password, function(err, user){
+    User.register(new User({username: req.body.username,mail: req.body.mail,Firstname: req.body.Firstname,rank:"user",coin:"0",free:"3",ac:"",lac:"",count:"0",bought:"0",abuyy:"",Lastname: req.body.Lastname,imname:"profile.jpeg"}), req.body.password, function(err, user){
         if(err){
             console.log(err);
             return res.render('signup');
@@ -96,6 +98,42 @@ router.get('/topup',middleware.isLoggedIn ,function(req,res){
 router.get('/topup',middleware.isLoggedIn ,function(req,res){
     res.render("topup",{free: req.user.free});
 });
+
+// router.get('/receive',middleware.isLoggedIn ,function(req,allPic){
+//     allPic.render("receive",{free: req.params.id,Pic:allPic});
+// });
+
+router.get("/receive",middleware.isLoggedIn, function(req,res){
+
+ 
+    Pic.find({},function(error, allPic){
+        if(error){
+            console.log("Error!");
+        } else {
+            res.render("receive",{Pic:allPic});
+        }
+    })
+    }
+ 
+);
+
+router.post("/receive/:id", function(req,res){
+    var soldd = req.body.sold;
+
+    zeni.findByIdAndUpdate(req.params.id,{sold:soldd},function(err,updatePic){
+        user.findByIdAndUpdate(req.user.id,{lac:req.body.lac,ac:req.body.ac},function(err,updatePic){
+        if(err){
+            res.redirect('/zeni');
+            console.log(err);
+        }else{
+            res.redirect('/zeni');
+        }
+    })
+})
+});
+
+
+
 
 router.post("/topUp/:id", function(req,res){
     var top = req.body.topup/10;

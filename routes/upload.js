@@ -104,12 +104,13 @@ router.post('/uploadphotosell', upload.single('image'), function(req,res){
   let n_image = req.file.filename;
   let n_desc = req.body.desc;
   let t_tag = req.body.tag1;
+
   
   let t_author = {
     id: req.user._id,
     username: req.user.username
   }
-  let n_all = {name:n_name,image:n_image,desc:n_desc,author:t_author,like:[],number_like:0};
+  let n_all = {name:n_name,image:n_image,desc:n_desc,author:t_author,like:[],sold:0,number_like:0};
   Pic.create(n_all,async function(err,newpic){
     if(err){
         console.log(err);

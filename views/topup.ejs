@@ -11,76 +11,20 @@
                     margin: 0;
                     padding: 0;
                     font-family: 'Poppins',sans-serif;
-                    background: rgb(5, 255, 151);
+                    background: rgb(69, 90, 81);
                 }
-                .container{
-                    width: 1200px;
-                    margin: 20px auto;
-                    columns: 3;
-                    column-gap: 40px;
-                }
-                .container .box{
-                    width: 100%;
-                    margin: 0 0 20px;
-                    padding: 10px;
-                    color: #ffffff;
-                    overflow: hidden;
-                    break-inside: avoid;
-                    
-                }
-                .container .box img#ku{
-                    width: 300px;
-                    height: 200px;
-                }
-                .container .box h2{
-                    margin: 10px 0 0;
-                    padding: 0;
-                    font-size: 20px;
-                    color: #000;
-                }
-                .container .box p{
-                    margin: 0;
-                    padding: 0 0 10px;
-                    font-size: 16px;
-                }
-                @media(max-width: 1200px){
-                    
-                    .container{
-                    columns: 3;
-                    width: calc(100% - 40px);
-                    box-sizing: border-box;
-                    padding: 20px 20px 20px 0;
-                }
-                }
-                @media(max-width: 768px){
-                    
-                    .container{
-                    columns: 2;
-                }
-                
-                }
-                @media(max-width: 480px){
-                    
-                    .container{
-                    columns: 1;
-                }
-                .NewImages{font-size:35px;}
-                .container .box img#ku{
-                    width: 270px;
-                    height: 200px;
-                }
-                }
+               
+               
    .box {
-  border: 5px solid rgb(139, 19, 55);
+  border: 5px solid rgb(61, 36, 44);
   border-radius: 4px;
   padding: 5px;
   width: 500px;
   height: 350px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(180, 166, 166);
   margin-top: auto;
+  margin-left:30%;
 }
-.btn.btn-outline-primary{color: rgb(168, 218, 247);
-background-color: rgb(31, 32, 32);}
 
 
 h1{
@@ -90,21 +34,66 @@ h1{
     font-family: 'Press Start 2P', cursive;
     text-shadow: 5px 0 5px  #f44336;
 }
-.Like{
-    color: #000;
-}
+.center.row{ font-size:30px;}
 i{
   color: #000;
 }
 h2{font-family: 'Permanent Marker', cursive;}
 a{font-family: 'Fredoka One', cursive;
 font-size: 60px;}
-
-.btn.btn-outline-primary{
-    display: inline;
-    color: rgb(168, 218, 247);
-background-color: rgb(31, 32, 32);
+.btn#sub{color: rgb(255, 11, 11);
+    border: 5px solid rgb(48, 7, 19);
+    background-color: cornflowerblue;
+    width: 100%;
+    
+    }
+    container {
+  position: absolute;
+  margin: 6% auto;
+  max-width:500px;
+  padding: 16px;
+  background-color: black;
+  overflow: hidden;
+  left: 50%;
+  right: 50%;
 }
+
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+@media screen and (max-width: 800px){
+  .container{width: 100%;
+    left: 0;
+  right: 0;
+  }
+  .box{margin-left:0;
+  width: 350px;
+  height: 500px;}
+  h1{font-size: 50px;}
+}
+
+@media screen and (max-width: 400px){
+  .container{width: 100%;
+    left: 0;
+  right: 0;
+  }
+  .box{margin-left:0;
+  width: 350px;
+  height: 500px;}
+  h1{font-size: 50px;}
+}
+
+
 
 
             </style>
@@ -113,36 +102,58 @@ background-color: rgb(31, 32, 32);
         </head>
         <body>
             
-       
-
+       <div class="container">
+<div class="box">
   
         <h1 class="NewImages">Top Up</h1>
         <form action="/topUp/<%= currentUser._id %>" method = 'POST' class="container">
         <br>
-            <center>
-        <input type="radio" id="topup" name="topup" value="50">
-        <label for="age1">50</label><br>
-        <input type="radio" id="topup" name="topup" value="100">
-        <label for="age2">100</label><br>  
-        <input type="radio" id="topup" name="topup" value="300">
-        <label for="age3">300</label><br><br>
-        <input type="radio" id="topup" name="topup" value="500">
-        <label for="age3">500</label><br><br>
-        <input type="radio" id="topup" name="topup" value="1000">
-        <label for="age3">1000</label><br><br>
-        <input type="submit" value="Submit">
-    </center>
-        </form>
+            <div class="center row"  >
+        <input type="radio" onclick="myFunction()" id="topup" name="topup" value="50">
+        <label for="age1">50</label>
+        <input type="radio" onclick="myFunction()" id="topup" name="topup" value="100">
+        <label for="age2">100</label>  
+        <input type="radio" onclick="myFunction()" id="topup" name="topup" value="300">
+        <label for="age3">300</label>
+        <input type="radio" onclick="myFunction()" id="topup" name="topup" value="500">
+        <label for="age3">500</label>
+        <input type="radio" onclick="myFunction()" id="topup" name="topup" value="1000">
+        <label for="age3">1000</label>
+        
+            </div>
 
-               
+    <label for="ccn">Credit Card Number:</label>
+    <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
+    <br><label for="ccn">CVC:</label>
+    <input id="ccn" type="tel" inputmode="numeric" maxlength="3" placeholder="xxx">
+   <br> Card Expiration:
+<select name='expireMM' id='expireMM'>
+    <option value=''>Month</option>
+    <option value='01'>January</option>
+    <option value='02'>February</option>
+    <option value='03'>March</option>
+    <option value='04'>April</option>
+    <option value='05'>May</option>
+    <option value='06'>June</option>
+    <option value='07'>July</option>
+    <option value='08'>August</option>
+    <option value='09'>September</option>
+    <option value='10'>October</option>
+    <option value='11'>November</option>
+    <option value='12'>December</option>
+</select> 
+<select name='expireYY' id='expireYY'>
+    <option value=''>Year</option>
+    <option value='10'>2010</option>
+    <option value='11'>2011</option>
+    <option value='12'>2012</option>
+</select> 
+<input class="inputCard" type="hidden" name="expiry" id="expiry" maxlength="4"/>
 
-       
-          
 
-
-  
-
-       
+<br><input type="submit" value="Submit" class="btn" id="sub">
+</div></div>
+              
 
         </body>
 

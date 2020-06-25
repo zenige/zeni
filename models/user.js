@@ -13,6 +13,11 @@ let UserSchema = new mongoose.Schema({
     coin: Number,
     free: Number,
     count: Number,
+    bought: Number,
+    abuyy :String,
+    ac:String,
+    lac:String,
+
 });
 
 UserSchema.plugin(passportLocalMongoose);

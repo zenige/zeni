@@ -152,14 +152,20 @@ h1{
             <img src="../<%= zeni.image %>" alt="Photo" class="img-fluid" width="50%">
             
             <h1><%= zeni.name %></h1>
+        
         <h3>By <i class="fas fa-user-alt"></i> <%= zeni.author.username %></h3>
           </div>
              <div>
+
+              <%if(currentUser.abuyy==zeni._id) {%>
+                <a href="/<%= zeni.image %>"    download  ><i class="fas fa-download"></i> Brought </a>
+              <% } %>
                
-              <form action='/zeni/zeni/pay' id="myform" method="POST" class="btn-d ">
+              <form action='/zeni/zeni/download/<%= zeni._id %>' id="myform" method="POST" class="btn-d ">
               
               <% if((currentUser.coin>=10)||(currentUser.rank == "admin")) { %>
-             
+                <input value="<%= zeni.sold+1%>" type="hidden" id="sold" name="sold">
+               
               <a href="/<%= zeni.image %>"  onclick="myFunction3()"  download  ><i class="fas fa-download"></i> download </a>
                
                 <% } else { %>

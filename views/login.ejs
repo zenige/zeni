@@ -30,13 +30,14 @@ body, html {
 .container {
   position: absolute;
   margin: 6% auto;
-  max-width: 500px;
+  max-width:500px;
   padding: 16px;
   background-color: black;
   overflow: hidden;
-  right: 500px;
-  
+  left: 50%;
+  right: 50%;
 }
+p{color: rgb(255, 255, 255);}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -53,7 +54,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 /* Set a style for the submit button */
-.btn {
+.btn#login{
   background-color: #2196F3;
   color: white;
   padding: 16px 20px;
@@ -69,12 +70,19 @@ input[type=text]:focus, input[type=password]:focus {
 h1{color: white;}
 b{color:white;}
 .checkbox{color:white;}
+
 @media screen and (max-width: 1200px){
   .bg-img{background-size:cover;}
-  .container{left: 30%;
-  right: 40%;}
+  .container{}
+  
+  
+@media screen and (max-width: 800px){
+  .container{width: 100%;
+    left: 0;
+  right: 0;
+  }
 }
-
+}
 </style>
 </head>
 <body>
@@ -85,19 +93,16 @@ b{color:white;}
     <h1>Welcome back</h1>
 
     <label for="email"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required maxlength="12">
+    <input type="text" placeholder="Enter Username" name="username" required>
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" required>
     
-    <div class="checkbox">
-        <label><input type="checkbox" value="" checked>Remember me</label>
-      </div>
 
-    <button type="submit" class="btn">Login</button>
+    <button type="submit" class="btn"id=login>Login</button>
 
     <p>Not a member? <a href="/SignUp">Sign Up</a></p>
-          <p>Forgot <a href="#">Password?</a></p>
+         
           
   </form>
 </div>
