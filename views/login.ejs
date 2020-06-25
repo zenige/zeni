@@ -1,0 +1,109 @@
+<%- include("partials/header")%>
+<!DOCTYPE html>
+<html>
+<head>
+  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-img {
+ 
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(https://images.hdqwalls.com/wallpapers/surreal-sunrise-at-the-swiftcurrent-lake-5k-hf.jpg);
+  height: 100vh;
+    width: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Add styles to the form container */
+.container {
+  position: absolute;
+  margin: 6% auto;
+  max-width: 500px;
+  padding: 16px;
+  background-color: black;
+  overflow: hidden;
+  right: 500px;
+  
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: #2196F3;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+h1{color: white;}
+b{color:white;}
+.checkbox{color:white;}
+@media screen and (max-width: 1200px){
+  .bg-img{background-size:cover;}
+  .container{left: 30%;
+  right: 40%;}
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="bg-img">
+  <form action="/login" method = 'POST' class="container">
+    <h1>Welcome back</h1>
+
+    <label for="email"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required maxlength="12">
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+    
+    <div class="checkbox">
+        <label><input type="checkbox" value="" checked>Remember me</label>
+      </div>
+
+    <button type="submit" class="btn">Login</button>
+
+    <p>Not a member? <a href="/SignUp">Sign Up</a></p>
+          <p>Forgot <a href="#">Password?</a></p>
+          
+  </form>
+</div>
+
+
+
+</body>
+</html>
+<%- include("partials/footer") %>

@@ -1,0 +1,419 @@
+<%- include("../partials/header") %>
+<<!DOCTYPE html>
+<html>
+  
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville|Muli:700');
+
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 5% 10%;
+    background-color: #131416;
+}
+
+.feed {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 16px 1fr 16px 1fr 16px 1fr 16px 1fr 16px 1fr 16px 1fr 16px 1fr 16px 1fr 16px 1fr 16px 1fr 16px 1fr;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 350px;
+    grid-gap: 16px;
+    margin: 40px 0 40px 0;
+}
+
+.card__category {
+    font-family: Muli, sans-serif;
+    font-size: 50px;
+    line-height: 18px;
+    font-weight: 700;
+    color:ghostwhite;
+    margin: 0;
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 2px 2px 5px #f44336
+}
+
+
+
+.card {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    padding: 20px;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.card:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0px 30px 18px -8px rgba(0,0,0,0.1);
+            box-shadow: 0px 30px 18px -8px rgba(0,0,0,0.1);
+    -webkit-transform: scale(1.02);
+        -ms-transform: scale(1.02);
+            transform: scale(1.02);
+}
+
+.card:nth-child(1) { 
+    
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(rgba(10,10,10,0)),
+        color-stop(50%, rgba(10,10,10,0)),
+        to(rgba(10,10,10,0.7))),url('https://a-static.besthdwallpaper.com/3d-saamehliiymnii-nsiiaedng-wx-ll-pepexr-3554x1999-7955_53.jpg');
+    background-image: -webkit-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://a-static.besthdwallpaper.com/3d-saamehliiymnii-nsiiaedng-wx-ll-pepexr-3554x1999-7955_53.jpg');
+    background-image: -o-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://a-static.besthdwallpaper.com/3d-saamehliiymnii-nsiiaedng-wx-ll-pepexr-3554x1999-7955_53.jpg');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://a-static.besthdwallpaper.com/3d-saamehliiymnii-nsiiaedng-wx-ll-pepexr-3554x1999-7955_53.jpg');
+}
+
+.card:nth-child(2) {
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(rgba(10,10,10,0)),
+        color-stop(50%, rgba(10,10,10,0)),
+        to(rgba(10,10,10,0.7))),url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/headshot-of-giraffe-sabi-sands-game-reserve-royalty-free-image-1573571300.jpg');
+    background-image: -webkit-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/headshot-of-giraffe-sabi-sands-game-reserve-royalty-free-image-1573571300.jpg');
+    background-image: -o-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/headshot-of-giraffe-sabi-sands-game-reserve-royalty-free-image-1573571300.jpg');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/headshot-of-giraffe-sabi-sands-game-reserve-royalty-free-image-1573571300.jpg');
+}
+
+.card:nth-child(3) {
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(rgba(10,10,10,0)),
+        color-stop(50%, rgba(10,10,10,0)),
+        to(rgba(10,10,10,0.7))),url('https://press.farm/wp-content/uploads/2018/03/fashion-luxury-brands-marketing.jpg');
+    background-image: -webkit-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://press.farm/wp-content/uploads/2018/03/fashion-luxury-brands-marketing.jpg');
+    background-image: -o-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://press.farm/wp-content/uploads/2018/03/fashion-luxury-brands-marketing.jpg');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://press.farm/wp-content/uploads/2018/03/fashion-luxury-brands-marketing.jpg');
+}
+
+.card:nth-child(4) {
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(rgba(10,10,10,0)),
+        color-stop(50%, rgba(10,10,10,0)),
+        to(rgba(10,10,10,0.7))),url('https://behrtech.com/wp-content/uploads/2018/09/LPWA-Solutions-for-IoT-in-Smart-Buildings.jpg');
+    background-image: -webkit-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://behrtech.com/wp-content/uploads/2018/09/LPWA-Solutions-for-IoT-in-Smart-Buildings.jpg');
+    background-image: -o-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://behrtech.com/wp-content/uploads/2018/09/LPWA-Solutions-for-IoT-in-Smart-Buildings.jpg');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://behrtech.com/wp-content/uploads/2018/09/LPWA-Solutions-for-IoT-in-Smart-Buildings.jpg');
+}
+
+.card:nth-child(5) {
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(rgba(10,10,10,0)),
+        color-stop(50%, rgba(10,10,10,0)),
+        to(rgba(10,10,10,0.7))),url('https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/beveragedaily.com/article/2020/01/02/2020-trends-to-watch-in-us-beverage/10484034-2-eng-GB/2020-trends-to-watch-in-US-beverage_wrbm_large.jpg');
+    background-image: -webkit-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/beveragedaily.com/article/2020/01/02/2020-trends-to-watch-in-us-beverage/10484034-2-eng-GB/2020-trends-to-watch-in-US-beverage_wrbm_large.jpg');
+    background-image: -o-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/beveragedaily.com/article/2020/01/02/2020-trends-to-watch-in-us-beverage/10484034-2-eng-GB/2020-trends-to-watch-in-US-beverage_wrbm_large.jpg');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/beveragedaily.com/article/2020/01/02/2020-trends-to-watch-in-us-beverage/10484034-2-eng-GB/2020-trends-to-watch-in-US-beverage_wrbm_large.jpg');
+}
+
+.card:nth-child(6) {
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(rgba(10,10,10,0)),
+        color-stop(50%, rgba(10,10,10,0)),
+        to(rgba(10,10,10,0.7))),url('https://cdn.pixabay.com/photo/2017/01/19/23/46/panorama-1993645_1280.jpg');
+    background-image: -webkit-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2017/01/19/23/46/panorama-1993645_1280.jpg');
+    background-image: -o-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2017/01/19/23/46/panorama-1993645_1280.jpg');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2017/01/19/23/46/panorama-1993645_1280.jpg');
+}
+
+.card:nth-child(7) {
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(rgba(10,10,10,0)),
+        color-stop(50%, rgba(10,10,10,0)),
+        to(rgba(10,10,10,0.7))),url('https://cdn.pixabay.com/photo/2014/11/03/10/44/camera-514992_1280.jpg');
+    background-image: -webkit-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2014/11/03/10/44/camera-514992_1280.jpg');
+    background-image: -o-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2014/11/03/10/44/camera-514992_1280.jpg');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2014/11/03/10/44/camera-514992_1280.jpg');
+}
+
+.card:nth-child(8) {
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(rgba(10,10,10,0)),
+        color-stop(50%, rgba(10,10,10,0)),
+        to(rgba(10,10,10,0.7))),url('https://cdn.pixabay.com/photo/2013/11/14/06/29/christmas-210289_1280.jpg');
+    background-image: -webkit-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2013/11/14/06/29/christmas-210289_1280.jpg');
+    background-image: -o-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2013/11/14/06/29/christmas-210289_1280.jpg');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2013/11/14/06/29/christmas-210289_1280.jpg');
+}
+
+.card:nth-child(9) {
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(rgba(10,10,10,0)),
+        color-stop(50%, rgba(10,10,10,0)),
+        to(rgba(10,10,10,0.7))),url('https://cdn.pixabay.com/photo/2016/08/14/18/27/sailing-boat-1593613_1280.jpg');
+    background-image: -webkit-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2016/08/14/18/27/sailing-boat-1593613_1280.jpg');
+    background-image: -o-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2016/08/14/18/27/sailing-boat-1593613_1280.jpg');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2016/08/14/18/27/sailing-boat-1593613_1280.jpg');
+}
+.card:nth-child(10) {
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(rgba(10,10,10,0)),
+        color-stop(50%, rgba(10,10,10,0)),
+        to(rgba(10,10,10,0.7))),url('https://cdn.pixabay.com/photo/2016/03/09/09/23/car-1245780_1280.jpg');
+    background-image: -webkit-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2016/03/09/09/23/car-1245780_1280.jpg');
+    background-image: -o-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2016/03/09/09/23/car-1245780_1280.jpg');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2016/03/09/09/23/car-1245780_1280.jpg');
+}
+.card:nth-child(11) {
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(rgba(10,10,10,0)),
+        color-stop(50%, rgba(10,10,10,0)),
+        to(rgba(10,10,10,0.7))),url('https://cdn.pixabay.com/photo/2016/11/08/05/08/adult-1807500_1280.jpg');
+    background-image: -webkit-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2016/11/08/05/08/adult-1807500_1280.jpg');
+    background-image: -o-linear-gradient(
+        top,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2016/11/08/05/08/adult-1807500_1280.jpg');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0) 0%,
+        rgba(10,10,10,0) 50%,
+        rgba(10,10,10,0.7) 100%),url('https://cdn.pixabay.com/photo/2016/11/08/05/08/adult-1807500_1280.jpg');
+}
+
+.card:nth-child(1),:nth-child(6),:nth-child(7),:nth-child(10),:nth-child(11) {
+    -ms-grid-column: span 6;
+        grid-column-start: span 6;
+}
+
+.card:nth-child(2),:nth-child(3),:nth-child(4),:nth-child(5),:nth-child(8),:nth-child(9) {
+    -ms-grid-column: span 3;
+        grid-column-start: span 3;
+}
+
+@media screen and (max-width: 1200px) {
+    .card:nth-child(n) {
+        -ms-grid-column: span 6;
+            grid-column-start: span 6;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .card:nth-child(n) {
+        -ms-grid-column: span 12;
+            grid-column-start: span 12;
+    }
+}
+    </style>
+    <body>
+        <div class="feed">
+            <div class="card" >
+              <a href="/zeni/abstract"><p class="card__category">Abstract</p></a>
+                
+            </div>
+            <div class="card">
+                <a href="/zeni/animals"><p class="card__category">Animals</p></a>
+                
+            </div>
+            <div class="card">
+                <a href="/zeni/Fashion"><p class="card__category">Fashion</p></a>
+                
+            </div>
+            <div class="card">
+                <a href="/zeni/Buildings"><p class="card__category">Buildings</p></a>
+                
+            </div>
+            <div class="card">
+                <a href="/zeni/FoodDrink"><p class="card__category">Food/Drink</p></a>
+                
+            </div>
+            <div class="card">
+                <a href="/zeni/Nature"><p class="card__category">Nature</p></a>
+                
+            </div>
+            <div class="card">
+                <a href="/zeni/Miscellaneous"><p class="card__category">Miscellaneous</p></a>
+               
+            </div>
+            <div class="card">
+                <a href="/zeni/Holidays"><p class="card__category">Holidays</p></a>
+               
+            </div>
+            <div class="card">
+                <a href="/zeni/Sports"><p class="card__category">Sports</p></a>
+                
+            </div>
+            <div class="card">
+                <a href="/zeni/Transportation"><p class="card__category">Transportation</p></a>
+              
+          </div>
+          <div class="card">
+            <a href="/zeni/People"><p class="card__category">People</p></a>
+            
+        </div>
+        </div>
+    </body>
+</html>
+
+
+  
+   
+  
+ 
+
+<%- include("../partials/footer") %>

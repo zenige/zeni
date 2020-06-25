@@ -1,0 +1,67 @@
+<%- include("partials/header")%>
+<!DOCTYPE html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  
+    
+  
+  <style>
+    body{
+      height: 100%;
+    width: 100%;
+      background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(https://images.hdqwalls.com/wallpapers/tanks-force-planet-scifi-4k-hc.jpg);
+    background-size: cover;
+    }
+  .form-group{
+    color:aliceblue;
+  }
+  h1{font-size: 80px;
+  color: #ffad06;
+  }
+
+  </style>
+
+  </head>
+  <body>
+      <div class="container">
+<h1>Add images</h1>
+<form action="/upload/uploadphotoo" method = "POST">
+      <div class="form-group">
+          <label for="name">Email</label>
+          <input type="text" class="form-control" name="mail" id="mail" value="<%= currentUser.mail%>">
+        
+          
+        </div>
+        <div class="form-group">
+          <label for="name">First Name</label>
+          <input type="text" class="form-control" name="Firstname" id="Firstname" value="<%= currentUser.Firstname%>">
+          
+        </div>
+        <div class="form-group">
+          <label for="name">Last Name</label>
+          <input type="text" class="form-control" name="Lastname" id="Lastname"value="<%= currentUser.Lastname%>">
+          
+        </div>
+        <div class="form-group">
+
+         
+            <input  class="btn btn-primary" type="submit" value="Upload">
+        </form>
+        </div>
+        
+      <div class="form-group">
+       
+        
+        
+        <button type="submit" class="btn btn-primary" style="float: right;">Submit</button>
+    </form>
+    </div>
+    
+  </body>
+</html>

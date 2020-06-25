@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+    <head>
+        
+        
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    <script src="https://kit.fontawesome.com/132bf66b6b.js" ></script>
+        <script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+
+        
+      </head>
+    <style>  
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+
+
+nav{
+  background: #222222;
+  padding: 10px 40px 10px 70px;
+  border: 1px solid #000;
+  border-left: none;
+  border-right: none;
+  
+}
+nav ul{
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+nav ul li.logo{
+  flex: 1;
+  font-size: 30px;
+  font-weight: 700;
+  color: rgb(255, 249, 249);
+}
+nav ul div.items{
+  padding: 0 25px;
+  display: inline-flex;
+}
+nav ul div.items a{
+  text-decoration: none;
+  font-size: 18px;
+  padding: 0 12px;
+  color: rgb(255, 255, 255);
+}
+nav ul div.items a:hover{
+  color: rgb(231, 68, 68);
+}
+nav ul .search-icon{
+  height: 40px;
+  width: 240px;
+  display: flex;
+  background: #f2f2f2;
+  border-radius: 5px;
+}
+nav ul .search-icon input{
+  height: 100%;
+  width: 200px;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  color: #000;
+  font-size: 16px;
+  border-radius: 5px 0 0 5px;
+}
+nav ul .search-icon .icon{
+  height: 100%;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #cccccc;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+nav ul .search-icon .icon:hover{
+  background: #e6e6e6;
+}
+nav ul .search-icon .icon span{
+  color: #f30808;
+  font-size: 18px;
+}
+nav ul li.btn{
+  font-size: 29px;
+  flex: 1;
+  padding: 0 40px;
+  display: none;
+  color: rgb(255, 0, 0);
+}
+nav ul li.btn span{
+  height: 42px;
+  width: 42px;
+  text-align: center;
+  line-height: 42px;
+  border: 1px solid #ff0303;
+  border-radius: 5px;
+  cursor: pointer;
+}
+nav ul li.btn span.show:before{
+  content: '\f00d';
+}
+@media screen and (max-width: 1052px) {
+  nav{
+    padding: 10px 40px 10px 0px;
+  }
+  nav ul li.logo{
+    display: none;
+  }
+  nav ul div.items{
+    flex: 4;
+  }
+}
+@media screen and (max-width: 800px){
+  nav ul li.btn{
+    display: block;
+  }
+  nav{
+    z-index: 1;
+    padding: 9px 40px 9px 0;
+  }
+  nav ul div.items{
+    z-index: 12;
+    position: fixed;
+    top: -500px;
+    right: 0;
+    width: 100%;
+    background: #222222;
+    display: inline-block;
+    transition: top .4s;
+  }
+  nav ul div.items.show{
+    top: 60px;
+  }
+  nav ul div.items li{
+    text-align: center;
+    line-height: 30px;
+    margin: 30px 0;
+  }
+  nav ul div.items li a{
+    font-size: 19px;
+  }
+}
+@media screen and (max-width: 405px) {
+  nav ul{
+    flex-wrap: nowrap;
+  }
+  nav ul li.search{
+    width: 50vmin;
+  }
+  nav ul li input{
+    width: 40vmin;
+  }
+  nav ul li .search-icon{
+    width: 10vmin;
+  }
+}
+
+
+.sub-menu-1{
+  display: none;
+  
+}
+nav ul li:hover .sub-menu-1{
+      display: block;
+      position: absolute;
+      background: #222222;
+      margin-left: -15px;
+      z-index: 3;
+    }
+nav ul li:hover .sub-menu-1 ul{
+  display: block;
+  margin: 10px;
+}
+nav ul li:hover .sub-menu-1 ul li{
+  width: 150px;
+  padding: 10px;
+  border-bottom: 1px dotted #ffffff;
+  background: transparent;
+  border-radius: 0;
+  text-align: left;
+}
+
+
+        </style>
+
+
+          
+        
+    <body>
+      
+      <nav>
+
+       
+  
+        <ul>
+  <li class="logo">Zeni</li>
+  <li class="btn" id="manu"><span class="fas fa-bars"></span></li>
+  <div class="items">
+  <li><a href="/Home">HOME</a></li>
+  <li><a href="/zeni">IMAGES</a></li>
+  <li><a href="/zeni/cate">CATEGORIES</a></li>
+  <li><a href="/zeni/new">UPLOAD</a></li>
+  <li><a href="/game">GAME</a></li>
+  
+            <% if(!currentUser) { %>
+              <li><a href="/login">LOGIN</a></li>
+              <li><a href="/SignUp">SIGNUP</a></li>
+            <% } else { %>
+              
+              <li>
+                <a color="white" href="#" class="user"><i class="fa fa-user"></i> WELCOME,<%= currentUser.username %></a> 
+                
+                <div class="sub-menu-1">
+              <ul>
+                <li><a href='/Portfolio'>History </a></li>
+                <li><a href='/profile'>Profile </a></li>
+                <% if(currentUser.rank == "admin") {%>
+                <li><a href='/admin'>Admin </a></li>
+                <%} %>
+                <li><a href='/logout'>Log out</a></li>
+            </ul>
+          </div>
+            </li> 
+            <li><a color="white" href="#"> Coin =, <%= currentUser.coin %></a> </li>
+           </div>
+            <% } %>
+            <form action = "/zeni/search" method="GET" class="form-inline">
+              <button class="search-icon">
+              <input type="search" name="search" placeholder="Search">
+              <label class="icon">
+                <span class="fas fa-search"></span>
+              </label>
+            </button>    
+          </form>
+                </ul>
+        </nav>
+          
+            <div class='container'>
+              <% if (error && error.length > 0) { %>
+                <div class="alert alert-danger" role="alert">
+                  <%= error %>
+                </div>
+              <% } %>
+              <% if (success && success.length > 0) { %>
+                <div class="alert alert-success" role="alert">
+                  <%= success %>
+                </div>
+              <% } %>
+            </div>
+       
+            <script>
+              $('nav ul li.btn span').click(function(){
+                $('nav ul div.items').toggleClass("show");
+                $('nav ul li.btn span').toggleClass("show");
+              });
+            </script> 
+        
+    </body>
+</html>
+
+
+</script>

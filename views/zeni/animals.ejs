@@ -1,0 +1,167 @@
+<%- include("../partials/header") %>
+
+        <head>
+            <link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/132bf66b6b.js" ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Permanent+Marker&family=Press+Start+2P&display=swap" rel="stylesheet">
+            <style>
+                @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,');
+                body{
+                    margin: 0;
+                    padding: 0;
+                    font-family: 'Poppins',sans-serif;
+                    background: rgb(22, 19, 32);
+                }
+                .container{
+                    width: 1200px;
+                    margin: 20px auto;
+                    columns: 3;
+                    column-gap: 40px;
+                }
+                .container .box{
+                    width: 100%;
+                    margin: 0 0 20px;
+                    padding: 10px;
+                    color: #ffffff;
+                    overflow: hidden;
+                    break-inside: avoid;
+                    
+                }
+                .container .box img#ku{
+                    width: 300px;
+                    height: 200px;
+                }
+                .container .box h2{
+                    margin: 10px 0 0;
+                    padding: 0;
+                    font-size: 20px;
+                    color: #000;
+                }
+                .container .box p{
+                    margin: 0;
+                    padding: 0 0 10px;
+                    font-size: 16px;
+                }
+                @media(max-width: 1200px){
+                    
+                    .container{
+                    columns: 3;
+                    width: calc(100% - 40px);
+                    box-sizing: border-box;
+                    padding: 20px 20px 20px 0;
+                }
+                }
+                @media(max-width: 768px){
+                    
+                    .container{
+                    columns: 2;
+                }
+                
+                }
+                @media(max-width: 480px){
+                    
+                    .container{
+                    columns: 1;
+                }
+                .NewImages{font-size:35px;}
+                .container .box img#ku{
+                    width: 270px;
+                    height: 200px;
+                }
+                }
+   .box {
+  border: 5px solid rgb(139, 19, 55);
+  border-radius: 4px;
+  padding: 5px;
+  width: 500px;
+  height: 350px;
+  background-color: rgb(255, 255, 255);
+  margin-top: auto;
+}
+.btn.btn-outline-primary{color: rgb(168, 218, 247);
+background-color: rgb(31, 32, 32);}
+
+
+h1{
+    text-align: center;
+    font-size: 80px;
+    color:azure;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 5px 0 5px  #f44336;
+}
+.Like{
+    color: #000;
+}
+i{
+  color: #000;
+}
+h2{font-family: 'Permanent Marker', cursive;}
+a{font-family: 'Fredoka One', cursive;
+font-size: 60px;}
+
+.btn.btn-outline-primary{
+    display: inline;
+    color: rgb(168, 218, 247);
+background-color: rgb(31, 32, 32);
+}
+
+
+            </style>
+           
+                
+        </head>
+        <body>
+            
+       
+       
+    
+  
+        <h1 class="NewImages">ANIMAL</h1>
+        
+        <br>
+<div class="container">
+    <% Pic.reverse().forEach(function(tag){ %>
+
+          <div class = "box">
+
+                  <img id="ku" src=../<%= tag.image %>>
+                  <div class="overlay">
+                  <h2 style="text-align: center;"><%= tag.name %></h2>
+                  </div>
+
+                  <div class="Like">
+                <a class="btn btn-outline-primary" href="/zeni/<%= tag._id %>" role="button"><img src=https://lh3.googleusercontent.com/proxy/ZQk5l71mIk9Igehtw6JkGi21nqkeg7087bZCpG4iuV7K5hWruON9ZNXP6txqcVEMsUZmngm3FzBsPWP7dsV-APMsOe1eGOm-e1ejazMli4PLi5v8VPmTHtCnkQGMXwk44hHZ width="60px">
+                </i> Show more </a>
+                
+        </div>
+
+        <form action="/zeni/zeni/<%= tag._id %>?_method=PUT" method="POST"  >
+            <input type="hidden" name="uid" value="<%= currentUser._id %>">   
+            <div> <button class="button" style="width: 80px; height: 50px;display: inline; float:right;margin-top: -50px;color: rgb(31, 32, 32);
+                background-color: rgb(101, 224, 224);border-radius: 20%;">  &nbsp&nbsp <i class="far fa-thumbs-up"></i> : <%=tag.number_like %>   &nbsp  </button></div>
+            </form> 
+            
+
+               
+</a>
+</div>
+          
+           
+      <% }); %>
+  
+
+ </div>  
+
+
+       
+
+        </body>
+<script>
+function myFunction() 
+{
+    confirm("Press a button!");
+    alert("Report Successful");
+}
+</script>
+<%- include("../partials/footer") %>

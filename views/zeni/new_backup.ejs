@@ -1,0 +1,123 @@
+<%- include("../partials/header") %>
+
+<!DOCTYPE html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  
+    
+  
+  <style>
+    body{
+      height: 100%;
+    width: 100%;
+      background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(https://images.hdqwalls.com/wallpapers/tanks-force-planet-scifi-4k-hc.jpg);
+    background-size: cover;
+    }
+  .form-group{
+    color:aliceblue;
+  }
+  h1{font-size: 80px;
+  color: #ffad06;
+  }
+
+  </style>
+
+  </head>
+  <body>
+      <br>
+      <br>
+      <br>
+      <div class="container">
+<h1>Add images</h1>
+      <div class="form-group">
+        
+      
+    
+  </div>
+  <form action="/upload/uploadphotosell" enctype="multipart/form-data" method = "POST">
+    <div class="form-group">
+        <label for="edutarotName">Name of photo</label>
+        <input type="text" class="form-control" name="name" placeholder="Name of Picture">
+    </div>
+        
+        <div class="form-group">
+            <label for="edutarotURL">Image URL</label>
+            <input type="file" name="image" accept="image/*">
+        </div>
+        <div class="form-group">
+            <label for="edutarotDesc">Description</label>
+            <input type="text" class="form-control" name="desc" placeholder=""">
+        </div>
+        <div class="form-group">
+            <label for="edutarotDesc">tag</label>
+            <input type="text" class="form-control" name="tagt" placeholder=""">
+        </div>
+    
+      <div class="form-group">
+        <label for="tag">Tags IMAGES</label>
+
+        <label for="cars">Choose a Tag:</label>
+
+        
+
+        <select id="tags1" name="tags1">
+          <option value="Abstract">Abstract</option>
+          <option value="Animals">Animals</option>
+          <option value="Buildings">Buildings</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Food/Drink">Food/Drink</option>
+          <option value="Nature">Nature</option>
+          <option value="Miscellaneous">Miscellaneous</option>
+          <option value="Holidays">Holidays</option>
+          <option value="Sports">Sports</option>
+          <option value="Transportation">Transportation</option>
+          <option value="People">People</option>
+        </select>
+        <select id="tags2" name="tags2">
+          <option value="Abstract">Abstract</option>
+          <option value="Animals">Animals</option>
+          <option value="Buildings">Buildings</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Food/Drink">Food/Drink</option>
+          <option value="Nature">Nature</option>
+          <option value="Miscellaneous">Miscellaneous</option>
+          <option value="Holidays">Holidays</option>
+          <option value="Sports">Sports</option>
+          <option value="Transportation">Transportation</option>
+          <option value="People">People</option>
+          </select>
+          <select id="tags3" name="tags3">
+            <option value="Abstract">Abstract</option>
+          <option value="Animals">Animals</option>
+          <option value="Buildings">Buildings</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Food/Drink">Food/Drink</option>
+          <option value="Nature">Nature</option>
+          <option value="Miscellaneous">Miscellaneous</option>
+          <option value="Holidays">Holidays</option>
+          <option value="Sports">Sports</option>
+          <option value="Transportation">Transportation</option>
+          <option value="People">People</option>
+          </select>
+        </div>
+
+    
+    
+        
+        
+        
+        <button type="submit" class="btn btn-outline-primary" style="float: right;">Submit</button>
+    </form>
+</form>
+    
+  </body>
+</html>
+
+
+<%- include("../partials/footer") %>

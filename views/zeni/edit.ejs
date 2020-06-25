@@ -1,0 +1,21 @@
+<%- include("../partials/header") %>
+<div class="container" style="width:35%;margin:25px auto;">
+    <h3 style="text-align: center;">Edit <%= Pic.name %></h3>
+    <form action="/zeni/<%= Pic._id %>?_method=PUT" method="POST" >
+        <div class="form-group">
+            <label for="eduPicName">Name of card</label>
+            <input type="text" class="form-control" name="pic[name]" value='<%= Pic.name %>'>
+        </div>
+        <div class="form-group">
+            <label for="eduPicImageUpload">Image URL</label>
+            <input type="file" class="form-control" name="pic[image]" accept="<%= Pic.image %>">
+        </div>
+        <div class="form-group">
+            <label for="eduPicDesc">Description</label>
+            <input type="text" class="form-control" name="pic[desc]" value='<%= Pic.desc %>'>
+            
+        </div>        
+        <button type="submit" class="btn btn-outline-primary" style="float: right;">Confirm</button>
+  </form>
+</div>  
+<%- include("../partials/footer") %>

@@ -1,0 +1,135 @@
+<%- include("../partials/header") %>
+
+        <head>
+            <link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/132bf66b6b.js" ></script>
+            <style>
+                @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,');
+                body{
+                    margin: 0;
+                    padding: 0;
+                    font-family: 'Poppins',sans-serif;
+                    background: rgb(160, 156, 156);
+                }
+                .container{
+                    width: 1200px;
+                    margin: 20px auto;
+                    columns: 3;
+                    column-gap: 40px;
+                }
+                .container .box{
+                    width: 100%;
+                    margin: 0 0 20px;
+                    padding: 10px;
+                    color: #ffffff;
+                    overflow: hidden;
+                    break-inside: avoid;
+                    
+                }
+                .container .box img{
+                    max-width: 100%;
+                }
+                .container .box h2{
+                    margin: 10px 0 0;
+                    padding: 0;
+                    font-size: 20px;
+                    color: #000;
+                }
+                .container .box p{
+                    margin: 0;
+                    padding: 0 0 10px;
+                    font-size: 16px;
+                }
+                @media(max-width: 1200px){
+                    
+                    .container{
+                    columns: 3;
+                    width: calc(100% - 40px);
+                    box-sizing: border-box;
+                    padding: 20px 20px 20px 0;
+                }
+                }
+                @media(max-width: 768px){
+                    
+                    .container{
+                    columns: 2;
+                }
+                }
+                @media(max-width: 480px){
+                    
+                    .container{
+                    columns: 1;
+                }
+                }
+   .box {
+  border: 5px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+  background-color: rgb(255, 255, 255);
+}
+
+.box:hover {
+  box-shadow: 5px 0 5px 5px #f44336;
+}
+h1{
+    text-align: center;
+    font-size: 50px;
+    color:azure;
+}
+.Like{
+    color: #000;
+}
+i{
+  color: #000;
+}
+
+
+            </style>
+           
+                
+        </head>
+        <body>
+            
+       
+       
+    
+  
+        <h1>New images</h1>
+<div class="container">
+    <% Pic.reverse().forEach(function(pic){ %>
+          <div class = "box">
+            
+                  <img src=<%= pic.image %> >
+                  <div class="overlay">
+                  <h2 style="text-align: center;"><%= pic.name %></h2>
+                  </div>
+                  <div class="Like">
+                <a class="btn btn-outline-primary" href="/zeni/<%= pic._id %>" role="button">More detail...</a>
+                <i class="far fa-thumbs-up"></i> : <%=pic.number_like %>
+        </div>
+                <form action = '/zeni/zeni/report/<%= pic.id %>'  method="POST">
+                    <button  onclick="myFunction()" class="btn btn-xs btn-danger"><i class="far fa-flag"></i>Report</button>
+                  </form>
+</a>
+</div>
+          
+           
+      <% }); %>
+  
+
+ </div>  
+
+
+       
+
+        </body>
+<script>
+// function myFunction() 
+// {
+//     confirm("Press a button!");
+//     alert("Report Successful");
+// }
+// </script>
+<%- include("../partials/footer") %>

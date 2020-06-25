@@ -1,0 +1,29 @@
+<%- include("../partials/header") %>
+<div class = "container">
+    <div class = "jumbotron" style="text-align: center;">
+        
+        <p>New</p>
+        
+        <a class="btn btn-outline-primary" href="/zeni/new" role="button">Add new card!</a>
+        <a class="btn btn-outline-primary" href="/zeni/sea" role="button">Sea</a>
+    </div>
+
+    <div class = "row" style="display:flex; flex-wrap:wrap;">
+    <% Tarot.forEach(function(tarot){ %>
+        
+        <div class="col-md-3 col-sm-6">
+            <% if(tarot.tag1=="sea") {%>
+            <div class="img-thumbnail">
+                <% if(tarot.tag1=="sea") {%>
+                <img src=../<%= tarot.image %> class="img-fluid"> 
+                <p style="text-align: center;"><%= tarot.name %></p>
+                <a class="btn btn-outline-primary" href="/zeni/<%= tarot._id %>" role="button">More detail...</a>
+                <!-- <p style="text-align: center;"><%= tarot.desc %></p> -->
+                <%}}%>
+            </div>
+        </div>
+    <% }); %>
+</div>
+</div>
+
+<%- include("../partials/footer") %>

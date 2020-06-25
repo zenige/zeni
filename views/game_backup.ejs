@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  background: #4020b457;
+}
+
+.memory-game {
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  clear: both;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform .2s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: #1C7CCC;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+.test-po{
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  position: fixed;
+  z-index: 200;
+  top: 90%;
+  
+}
+.top-po{
+  width: 100%;
+  height: 5%;
+  bottom: 0;
+  position: fixed;
+  z-index: 300;
+  top: 5%;
+  
+}
+
+
+
+
+  </style>
+ 
+  <meta charset="UTF-8">
+
+  <title>Memory Game</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+ <% if(currentUser.free >0) { %>
+  <section class="memory-game">
+    <div class="memory-card" data-framework="aurelia">
+      <img class="front-face" src="https://globalsymbols.com/uploads/production/image/imagefile/15613/17_15614_d685e7d9-190f-4914-afe4-c72ac5ebbc0e.png" alt="Aurelia" />
+      <img class="back-face" onclick="myFunction0p()"  src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="aurelia">
+      <img class="front-face" src="https://globalsymbols.com/uploads/production/image/imagefile/15613/17_15614_d685e7d9-190f-4914-afe4-c72ac5ebbc0e.png" alt="Aurelia" />
+      <img class="back-face" onclick="myFunction0p()"  src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="vue">
+      <img class="front-face" src="https://globalsymbols.com/uploads/production/image/imagefile/15613/17_15614_d685e7d9-190f-4914-afe4-c72ac5ebbc0e.png" alt="Vue" />
+      <img class="back-face" onclick="myFunction0p()"  src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="vue">
+      <img class="front-face" src="https://globalsymbols.com/uploads/production/image/imagefile/15613/17_15614_d685e7d9-190f-4914-afe4-c72ac5ebbc0e.png" alt="Vue" />
+      <img class="back-face"  onclick="myFunction0p()" src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="angular">
+      <img class="front-face" src="https://i.pinimg.com/originals/54/b6/60/54b6601b09de712ca8bbaf532101918b.png" alt="Backbone" />
+      <img class="back-face" onclick="myFunction1p()"src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="angular">
+      <img class="front-face" src="https://i.pinimg.com/originals/54/b6/60/54b6601b09de712ca8bbaf532101918b.png" alt="Backbone" />
+      <img class="back-face" onclick="myFunction1p()"src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="ember">
+      <img class="front-face" src="https://i.pinimg.com/originals/54/b6/60/54b6601b09de712ca8bbaf532101918b.png" alt="Backbone" />
+      <img class="back-face" onclick="myFunction1p()"src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="ember">
+      <img class="front-face" src="https://i.pinimg.com/originals/54/b6/60/54b6601b09de712ca8bbaf532101918b.png" alt="Backbone" />
+      <img class="back-face" onclick="myFunction1p()"src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="backbone">
+      <input class="front-face" type="image" id="image" value="5" src="http://www.clker.com/cliparts/9/g/b/m/E/I/animal-number-five-md.png" alt="React" >
+      <input class="back-face" type="image"  onclick="myFunction5p()" id="image" value="5"  src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" >
+    </div>
+    <div class="memory-card" data-framework="backbone">
+      <img class="front-face" src="https://i.pinimg.com/originals/54/b6/60/54b6601b09de712ca8bbaf532101918b.png" alt="Backbone" />
+      <img class="back-face" onclick="myFunction1p()"src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="react"  >
+      <form name="test" id="test" value ="4" >
+      <img class="front-face" src="https://www.nicepng.com/png/full/918-9189418_10-ten-cartoon-ten-png.png" alt="React"   />
+     
+      <img class="back-face" onclick="myFunction10p()" src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </form>
+    </div>
+
+    <div class="memory-card" data-framework="react">
+      <input class="front-face" type="image" id="image" value="5" src="http://www.clker.com/cliparts/9/g/b/m/E/I/animal-number-five-md.png" alt="React" >
+      <input class="back-face" type="image"  onclick="myFunction5p()" id="image" value="5"  src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" >
+    </div>
+  </section>
+  <section class="test-po" > 
+    <center>
+      <form action='/zeni/zeni/add0' id="myform0" method="POST"> 
+    
+        <div id="0point">
+          ยินดีด้วย!!!คุณได้รับ เกลือ 1 Ea
+          <button type="hidden">Accept</button>
+          </div>
+        </form>
+
+  <form action='/zeni/zeni/add1' id="myform1" method="POST"> 
+    
+    <div id="1point">
+      ยินดีด้วย!!!คุณได้รับ 1 Coin
+      <button type="hidden">Accept</button>
+      </div>
+    </form>
+
+  <form action='/zeni/zeni/add5' id="myform5" method="POST"> 
+
+  <div id="5point">
+    ยินดีด้วย!!!คุณได้รับ 5 Coin
+    <button type="hidden">Accept</button>
+    </div>
+  </form>
+
+  <form action='/zeni/zeni/add10' id="myform10" method="POST"> 
+
+    <div id="10point">
+      ยินดีด้วย!!!คุณได้รับ 10 Coin
+      <button type="hidden">Accept</button>
+      </div>
+    </form>
+  </center>
+  </section>
+   
+    <%} else {%>
+      พ้อยมึงหมดแล้วไอสัส
+      <% }%>
+      <div class="top-po">
+        <center>
+        รอบเล่นที่เหลือ =  <%= currentUser.free %> รอบ
+      </center>
+    </div>
+
+    
+    
+
+</body>
+</html>
+<% if(currentUser.free >0){ %>
+<script>
+
+
+
+var c= document.getElementById("0point");
+c.style.display = "none";
+
+var x = document.getElementById("1point");
+x.style.display = "none";
+var x = document.getElementById("5point");
+x.style.display = "none";
+var x = document.getElementById("10point");
+x.style.display = "none";
+
+
+const cards = document.querySelectorAll('.memory-card');
+var h = 0;
+let hasFlippedCard = false;
+
+let firstCard;
+
+
+
+
+function flipCard() {
+  if(h == 0)
+  {
+  this.classList.add('flip');
+  if (!hasFlippedCard) {
+    // first click
+    hasFlippedCard = true;
+    firstCard = this;
+    h = 1;
+    return;
+  }
+  }
+ 
+}
+
+
+
+(function shuffle() {
+  cards.forEach(card => {
+    let randomPos = Math.floor(Math.random() * 12);
+    card.style.order = randomPos;
+  });
+})();
+
+
+function myFunction0p() {
+  if(h == 0){
+  var x = document.getElementById("0point");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  flipCard(); 
+  h = 1;
+  }
+  
+}
+
+
+
+function myFunction1p() {
+  if(h == 0){
+  var x = document.getElementById("1point");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  flipCard(); 
+  h = 1;
+  }
+  
+}
+
+function myFunction5p() {
+  if(h == 0){
+  var x = document.getElementById("5point");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  flipCard(); 
+  h = 1;
+  }
+}
+
+function myFunction10p() {
+  if(h == 0){
+  var x = document.getElementById("10point");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  flipCard(); 
+  h = 1;
+  }
+}
+
+
+
+cards.forEach(card => card.addEventListener('click', flipCard));
+
+</script>
+<% currentUser.free = currentUser.free-1; %>
+<%currentUser.save(function(err,success){}); %>
+<% } else { %>
+ 
+<% } %>

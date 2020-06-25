@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+    <!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+    <div class="w3-container">
+      <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+        <i class="fa fa-remove"></i>
+      </a>
+      
+      <form action="/profile" method="post" enctype="multipart/form-data">
+        <input type="file" name="avatar" />
+
+
+      <img src="../<%= currentUser.imname %> " style="width:45%;" class="w3-round"><br><br>
+    </form>
+      <h4><b><%= currentUser.username %></b></h4>
+
+      
+    </div>
+    <div class="w3-bar-block">
+      <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>PORTFOLIO</a> 
+      <a href="/upload/addphoto" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ADD PHOTO</a> 
+      <a href="/upload/profile" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>EditProfile</a>
+    </div>
+    
+  </nav>
+  
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+  
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:300px">
+
+
+<div class="w3-display-container w3-content w3-center" style="max-width:1500px">
+  <!-- <img class="w3-image" src="https://images.hdqwalls.com/download/lights-bokeh-4k-8m-3840x2160.jpg" alt="Me" width="1200" height="104">
+  <div class="w3-display-middle w3-padding-large w3-border w3-wide w3-text-light-grey w3-center">
+    <h1 class="w3-hide-medium w3-hide-small w3-xxxlarge">TAO 454</h1>
+    <h5 class="w3-hide-large" style="white-space:nowrap">JANE DOE</h5>
+    <h3 class="w3-hide-medium w3-hide-small">PHOTOGRAPHER</h3> -->
+  </div>
+  
+  
+  <header id="portfolio">
+    <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    <h1><b>MY IMAGES</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <!-- <span class="w3-margin-right">Filter:</span> 
+      <button class="w3-button w3-black">ALL</button>
+      <button class="w3-button w3-white"><i class="fa fa-diamond w3-margin-right"></i>Design</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Photos</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>Art</button> -->
+    </div>
+    </div>
+  </header>
+
+  <!-- Photo Grid -->
+  <div class = "container">
+    <div class = "jumbotron" style="text-align: center;">
+        <h2>Tarot List</h2>
+        <p>This page shows all the EduTarot collection!</p>
+        <a class="btn btn-outline-primary" href="/tarot/new" role="button">Add new card!</a>
+    </div>
+
+    <div class = "row" style="display:flex; flex-wrap:wrap;">
+    <% Tarot.forEach(function(tarot){ %>
+        <div class="col-md-3 col-sm-6">
+            <div class="img-thumbnail">
+                <% console.log("now = "+currentUser.username);%>
+               <% if(currentUser.username==tarot.username) {%>
+                
+                <img src=<%= tarot.image %> alt="Smiley face" height="120" width="120" class="img-fluid"> 
+                <p style="text-align: center;"><%= tarot.name %></p>
+                <a class="btn btn-outline-primary" href="/tarot/<%= tarot._id %>" role="button">More detail...</a>
+                <!-- <p style="text-align: center;"><%= tarot.desc %></p> -->
+               <%}%>
+            </div>
+        </div>
+    <% }); %>
+</div>
+</div>
+
+  
+    <div class="w3-third">
+      <img src="https://images.hdqwalls.com/wallpapers/norway-city-sunset-railing-5k-64.jpg" style="width:100%">
+      <img src="https://images.hdqwalls.com/wallpapers/urban-road-downtown-5k-vc.jpg" style="width:100%">
+      <img src="https://pbs.twimg.com/media/CPfXBJhUkAATL5W?format=jpg&name=medium" style="width:100%">
+      <img src="https://images.hdqwalls.com/wallpapers/red-dress-girl-flower-bed-4k-cb.jpg" style="width:100%">
+      <img src="https://images.hdqwalls.com/wallpapers/singapore-skyscrapers-marina-bay-sands-evening-4k-es.jpg" style="width:100%">
+      <img src="https://66.media.tumblr.com/8cbf15d1416f82c8480284d61c46216c/tumblr_os5r57GztV1wn0x68o4_1280.jpg" style="width:100%">
+    </div>
+  
+    <div class="w3-third">
+      <img src="https://images.hdqwalls.com/wallpapers/bread-blueberries-orange-strawberries-food-art-qx.jpg" style="width:100%">
+      <img src="https://pbs.twimg.com/media/EVIHZJ6XsAADR66?format=jpg&name=medium" style="width:100%">
+      <img src="https://images.hdqwalls.com/wallpapers/time-lapse-asphalt-road-5k-yg.jpg" style="width:100%">
+      <img src="https://66.media.tumblr.com/eec6a771989d723a5f6238b886421a7c/tumblr_os5r57GztV1wn0x68o1_1280.jpg" style="width:100%">
+      <img src="https://pbs.twimg.com/media/EVHWGMLUYAAJ14z?format=jpg&name=large" style="width:100%">
+      <img src="https://pbs.twimg.com/media/DrKw9PdUUAAwfSR.jpg" style="width:100%">
+    </div>
+  </div>
+  
+</body>
+</html>
+
+

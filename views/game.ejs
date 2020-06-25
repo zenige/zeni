@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  background: #4020b457;
+}
+
+.memory-game {
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  clear: both;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform .2s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: #1C7CCC;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+.test-po{
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  position: fixed;
+  z-index: 200;
+  top: 90%;
+  
+}
+.top-po{
+  width: 100%;
+  height: 5%;
+  bottom: 0;
+  position: fixed;
+  z-index: 300;
+  top: 5%;
+  
+}
+
+#popup {
+		background-color: rgba(0,0,0,0.8);
+		position: fixed;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		margin:0;
+		-webkit-animation:autopopup 2s;
+		-moz-animation:autopopup 2s;
+		animation:autopopup 2s;
+	}
+		@-webkit-keyframes autopopup {
+			from {opacity: 0;margin-top:-200px;}
+			to {opacity: 1;}
+		}
+		@-moz-keyframes autopopup {
+			from {opacity: 0;margin-top:-200px;}
+			to {opacity: 1;}
+		}
+		@keyframes autopopup {
+			from {opacity: 0;margin-top:-200px;}
+			to {opacity: 1;}
+		}
+
+	#popup:target {
+		-webkit-transition:all 1s;
+		-moz-transition:all 1s;
+		transition:all 1s;
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	.popup-contenedor {
+		position: relative;
+		margin:7% auto;
+		padding:30px 50px;
+		background-color: #fafafa;
+		color:#333;
+		border-radius: 3px;
+		width:50%;
+	}
+
+	a.popup-cerrar {
+		position: absolute;
+		top:3px;
+		right:3px;
+		background-color: #333;
+		padding:7px 10px;
+		font-size: 20px;
+		text-decoration: none;
+		line-height: 1;
+		color:#fff;
+	}
+
+
+  </style>
+ 
+  <meta charset="UTF-8">
+
+  <title>Memory Game</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+ <% if(currentUser.free >0) { %>
+  <section class="memory-game">
+    <div class="memory-card" data-framework="aurelia">
+      <img class="front-face" src="https://globalsymbols.com/uploads/production/image/imagefile/15613/17_15614_d685e7d9-190f-4914-afe4-c72ac5ebbc0e.png" alt="Aurelia" />
+      <img class="back-face" onclick="myFunction0p()"  src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="aurelia">
+      <img class="front-face" src="https://globalsymbols.com/uploads/production/image/imagefile/15613/17_15614_d685e7d9-190f-4914-afe4-c72ac5ebbc0e.png" alt="Aurelia" />
+      <img class="back-face" onclick="myFunction0p()"  src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="vue">
+      <img class="front-face" src="https://globalsymbols.com/uploads/production/image/imagefile/15613/17_15614_d685e7d9-190f-4914-afe4-c72ac5ebbc0e.png" alt="Vue" />
+      <img class="back-face" onclick="myFunction0p()"  src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="vue">
+      <img class="front-face" src="https://globalsymbols.com/uploads/production/image/imagefile/15613/17_15614_d685e7d9-190f-4914-afe4-c72ac5ebbc0e.png" alt="Vue" />
+      <img class="back-face"  onclick="myFunction0p()" src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="angular">
+      <img class="front-face" src="https://i.pinimg.com/originals/54/b6/60/54b6601b09de712ca8bbaf532101918b.png" alt="Backbone" />
+      <img class="back-face" onclick="myFunction1p()"src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="angular">
+      <img class="front-face" src="https://i.pinimg.com/originals/54/b6/60/54b6601b09de712ca8bbaf532101918b.png" alt="Backbone" />
+      <img class="back-face" onclick="myFunction1p()"src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="ember">
+      <img class="front-face" src="https://i.pinimg.com/originals/54/b6/60/54b6601b09de712ca8bbaf532101918b.png" alt="Backbone" />
+      <img class="back-face" onclick="myFunction1p()"src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="ember">
+      <img class="front-face" src="https://i.pinimg.com/originals/54/b6/60/54b6601b09de712ca8bbaf532101918b.png" alt="Backbone" />
+      <img class="back-face" onclick="myFunction1p()"src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="backbone">
+      <input class="front-face" type="image" id="image" value="5" src="http://www.clker.com/cliparts/9/g/b/m/E/I/animal-number-five-md.png" alt="React" >
+      <input class="back-face" type="image"  onclick="myFunction5p()" id="image" value="5"  src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" >
+    </div>
+    <div class="memory-card" data-framework="backbone">
+      <img class="front-face" src="https://i.pinimg.com/originals/54/b6/60/54b6601b09de712ca8bbaf532101918b.png" alt="Backbone" />
+      <img class="back-face" onclick="myFunction1p()"src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="react"  >
+      <form name="test" id="test" value ="4" >
+      <img class="front-face" src="https://www.nicepng.com/png/full/918-9189418_10-ten-cartoon-ten-png.png" alt="React"   />
+     
+      <img class="back-face" onclick="myFunction10p()" src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" />
+    </form>
+    </div>
+
+    <div class="memory-card" data-framework="react">
+      <input class="front-face" type="image" id="image" value="5" src="http://www.clker.com/cliparts/9/g/b/m/E/I/animal-number-five-md.png" alt="React" >
+      <input class="back-face" type="image"  onclick="myFunction5p()" id="image" value="5"  src="https://www.pngkey.com/png/full/349-3492792_card-back.png" alt="JS Badge" >
+    </div>
+  </section>
+  <section class="test-po" > 
+    <center>
+      <form action='/zeni/zeni/add0' id="myform0" method="POST"> 
+    
+        <div id="0point">
+          ยินดีด้วย!!!คุณได้รับ เกลือ 1 Ea
+          <input type="image" id="ku" alt="Login" src="https://www.pngmart.com/files/3/Submit-Button-PNG-Transparent-Image.png" width="100px" style="left: 0; margin-left: 0;">
+          </div>
+        </form>
+
+  <form action='/zeni/zeni/add1' id="myform1" method="POST"> 
+    
+    <div id="1point">
+      ยินดีด้วย!!!คุณได้รับ 1 Coin
+      <input type="image" id="ku" alt="Login" src="https://www.pngmart.com/files/3/Submit-Button-PNG-Transparent-Image.png" width="100px" style="left: 0; margin-left: 0;">
+      </div>
+    </form>
+
+  <form action='/zeni/zeni/add5' id="myform5" method="POST"> 
+
+  <div id="5point">
+    ยินดีด้วย!!!คุณได้รับ 5 Coin
+    < <input type="image" id="ku" alt="Login" src="https://www.pngmart.com/files/3/Submit-Button-PNG-Transparent-Image.png" width="100px" style="left: 0; margin-left: 0;">
+    </div>
+  </form>
+
+  <form action='/zeni/zeni/add10' id="myform10" method="POST"> 
+
+    <div id="10point">
+      ยินดีด้วย!!!คุณได้รับ 10 Coin
+      <input type="image" id="ku" alt="Login" src="https://www.pngmart.com/files/3/Submit-Button-PNG-Transparent-Image.png" width="100px" style="left: 0; margin-left: 0;">
+      </div>
+    </form>
+  </center>
+  </section>
+   
+    <%} else {%>
+        <% let count=0; %>
+        <% if(count = 0){%>
+        <h1 style="text-align: center;"><br> <button onclick="Navigate()"></button></h1>
+
+        <div class="modal-wrapper" id="popup">
+            <div class="popup-contenedor">
+                
+                <h2>Read Me </h2>
+                <p>เกมเสี่ยงดวง ถ้าคุณดวงดีรับเหรียณไปเลยฟรีๆ </p>
+                <p>กฎกติกา</p>
+                <p>1. ทุก ID สามารถเล่นฟรีได้ 3 ครั้ง "จำนวนเล่นฟรีของคุณคงเหลือ   <%=currentUser.free %> รอบ"</p>
+                <p>2. เลือกไพ่ที่คุณต้องการ 1 ใบ</p>
+                <p>3. ต้องกด accept ทุกครั้งหลักจากสุ่มไพ่</p>
+                <a class="popup-cerrar" href="#popup">X</a>
+                <% count = 1;%>
+            </div>
+        </div>
+
+      <% }}%>
+      <div class="top-po">
+        <center>
+        รอบเล่นที่เหลือ =  <%= currentUser.free %> รอบ <br>
+        <a href="/zeni">
+            <img id="ku" src="https://lh3.googleusercontent.com/sjY0YeMySx9TQOFFJgbRa-hJlFICKIKy2sELJB1z4MCwKRxlXNkhvS5G72ZHvK4sqA" width="50px" style="left: 0; margin-left: 0;">
+        </a>
+        <a href="/game">
+            <img id="ku" src="https://www.pngrepo.com/download/22749/refresh.png" width="47px" style="left: 0; margin-left: 0;">
+        </a>
+      </center>
+    </div>
+    
+
+
+
+    <h1 style="text-align: center;"><br> <button onclick="Navigate()"></button></h1>
+
+    <div class="modal-wrapper" id="popup">
+		<div class="popup-contenedor">
+			
+			<h2>Read Me</h2>
+			<p>เกมเสี่ยงดวง ถ้าคุณดวงดีรับเหรียณไปเลยฟรีๆ </p>
+            <p>กฎกติกา</p>
+            <p>1. ทุก ID สามารถเล่นฟรีได้ 3 ครั้ง "จำนวนเล่นฟรีของคุณคงเหลือ   <%=currentUser.free %> รอบ"</p>
+            <p>2. เลือกไพ่ที่คุณต้องการ 1 ใบ</p>
+            <p>3. ต้องกด accept ทุกครั้งหลักจากสุ่มไพ่</p>
+			<a class="popup-cerrar" href="#popup">X</a>
+			
+		</div>
+	</div>
+
+	
+<script>
+    
+$('.modal-wrapper').delay(999999999999999).fadeOut('fast');
+</script>
+ 
+
+</body>
+</html>
+<% if(currentUser.free >0){ %>
+<script>
+
+
+
+var c= document.getElementById("0point");
+c.style.display = "none";
+
+var x = document.getElementById("1point");
+x.style.display = "none";
+var x = document.getElementById("5point");
+x.style.display = "none";
+var x = document.getElementById("10point");
+x.style.display = "none";
+
+
+const cards = document.querySelectorAll('.memory-card');
+var h = 0;
+let hasFlippedCard = false;
+
+let firstCard;
+
+
+
+
+function flipCard() {
+  if(h == 0)
+  {
+  this.classList.add('flip');
+  if (!hasFlippedCard) {
+    // first click
+    hasFlippedCard = true;
+    firstCard = this;
+    h = 1;
+    return;
+  }
+  }
+ 
+}
+
+
+
+(function shuffle() {
+  cards.forEach(card => {
+    let randomPos = Math.floor(Math.random() * 12);
+    card.style.order = randomPos;
+  });
+})();
+
+
+function myFunction0p() {
+  if(h == 0){
+  var x = document.getElementById("0point");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  flipCard(); 
+  h = 1;
+  }
+  
+}
+
+
+
+function myFunction1p() {
+  if(h == 0){
+  var x = document.getElementById("1point");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  flipCard(); 
+  h = 1;
+  }
+  
+}
+
+function myFunction5p() {
+  if(h == 0){
+  var x = document.getElementById("5point");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  flipCard(); 
+  h = 1;
+  }
+}
+
+function myFunction10p() {
+  if(h == 0){
+  var x = document.getElementById("10point");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  flipCard(); 
+  h = 1;
+  }
+}
+
+
+
+cards.forEach(card => card.addEventListener('click', flipCard));
+
+</script>
+<% currentUser.free = currentUser.free-1; %>
+<%currentUser.save(function(err,success){}); %>
+<% } else { %>
+ 
+<% } %>
