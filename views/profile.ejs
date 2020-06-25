@@ -60,16 +60,14 @@
                 
                 }
                 @media(max-width: 480px){
-                    
-                    .container{
-                    columns: 1;
+                    .form-group.form-control#mail{width: 500px;}
                 }
                 .NewImages{font-size:35px;}
                 .container .box img#ku{
                     width: 270px;
                     height: 200px;
                 }
-                }
+                
    .box {
   border: 5px solid rgb(139, 19, 55);
   border-radius: 4px;
@@ -141,20 +139,20 @@ background-color: rgb(31, 32, 32);
         <form action="/upload/uploadphotoo" method = "POST">
             <div class="form-group">
                 <label for="name" style="color: #ffffff;">Email</label>
-                <input type="text" style="width: 30%;" class="form-control" name="mail" id="mail" value="<%= currentUser.mail%>">
+                <input type="text" style="width: 70%;" class="form-control" name="mail" id="mail" value="<%= currentUser.mail%>">
               
                 
               </div>
               <br>
               <div class="form-group">
                 <label for="name" style="color: #ffffff;">First Name</label>
-                <input type="text" style="width: 30%;" class="form-control" name="Firstname" id="Firstname" value="<%= currentUser.Firstname%>">
+                <input type="text" style="width: 70%;" class="form-control" name="Firstname" id="Firstname" value="<%= currentUser.Firstname%>">
                 
               </div>
               <br>
               <div class="form-group">
                 <label for="name"style="color: #ffffff;">Last Name</label>
-                <input type="text" style="width: 30%;" class="form-control" name="Lastname" id="Lastname"value="<%= currentUser.Lastname%>">
+                <input type="text" style="width: 70%;" class="form-control" name="Lastname" id="Lastname"value="<%= currentUser.Lastname%>">
                 
               </div>
               <br>
