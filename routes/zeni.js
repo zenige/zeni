@@ -276,7 +276,6 @@ router.post("/zeni/pay",middleware.isLoggedIn, function(req,res){
 
 router.post("/zeni/add5",middleware.isLoggedIn, function(req,res){
       req.user.coin = req.user.coin+5;
-      req.user.free = req.user.free-1;
       req.user.save(function(err,success){
       
         res.redirect("/zeni");
@@ -286,7 +285,6 @@ router.post("/zeni/add5",middleware.isLoggedIn, function(req,res){
 
 router.post("/zeni/add10",middleware.isLoggedIn, function(req,res){
     req.user.coin = req.user.coin+10;
-    req.user.free = req.user.free-1;
     req.user.save(function(err,success){
     
       res.redirect("/zeni");
@@ -296,7 +294,6 @@ router.post("/zeni/add10",middleware.isLoggedIn, function(req,res){
 
 router.post("/zeni/add1",middleware.isLoggedIn, function(req,res){
     req.user.coin = req.user.coin+1;
-    req.user.free = req.user.free-1;
     req.user.save(function(err,success){
     
       res.redirect("/zeni");
@@ -305,8 +302,6 @@ router.post("/zeni/add1",middleware.isLoggedIn, function(req,res){
 });
 
 router.post("/zeni/add0",middleware.isLoggedIn, function(req,res){
-    req.user.free = req.user.free-1;
-    req.user.save(function(err,success){
     
       res.redirect("/zeni");
     });
@@ -387,9 +382,7 @@ router.put("/zeni/:id",function(req,res){
               {
               finished.like.push(req.body.uid);
               finished.number_like++;
-              console.log("dasdasdasdasda"+finished.number_like);
               finished.save();
-              console.log("finsish = "+finished.number_like);
               res.redirect('back');
    
               }
@@ -398,7 +391,6 @@ router.put("/zeni/:id",function(req,res){
               finished.like.remove(req.body.uid);
               finished.number_like--;
               finished.save();
-              console.log(finished.number_like);
               res.redirect('back');
             }
       

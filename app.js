@@ -58,4 +58,4 @@ app.use('/upsale',upsaleto);
 
 app.listen(PORT, () => {
     console.log("Server is ready on port :${ PORT }");
-});
+}); 
