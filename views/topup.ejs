@@ -11,7 +11,7 @@
                     margin: 0;
                     padding: 0;
                     font-family: 'Poppins',sans-serif;
-                    background: rgb(22, 19, 32);
+                    background: rgb(5, 255, 151);
                 }
                 .container{
                     width: 1200px;
@@ -114,27 +114,33 @@ background-color: rgb(31, 32, 32);
         <body>
             
        
-       
-    
+
   
         <h1 class="NewImages">Top Up</h1>
-        
+        <form action="/topUp/<%= currentUser._id %>" method = 'POST' class="container">
         <br>
-<div class="container">
-    <% Pic.reverse().forEach(function(tag){ %>
-     
-            
+            <center>
+        <input type="radio" id="topup" name="topup" value="50">
+        <label for="age1">50</label><br>
+        <input type="radio" id="topup" name="topup" value="100">
+        <label for="age2">100</label><br>  
+        <input type="radio" id="topup" name="topup" value="300">
+        <label for="age3">300</label><br><br>
+        <input type="radio" id="topup" name="topup" value="500">
+        <label for="age3">500</label><br><br>
+        <input type="radio" id="topup" name="topup" value="1000">
+        <label for="age3">1000</label><br><br>
+        <input type="submit" value="Submit">
+    </center>
+        </form>
 
                
 
-</div>
+       
           
-<%});%>
+
 
   
-   
- </div>  
-
 
        
 

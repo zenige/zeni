@@ -12,7 +12,7 @@
 body {
   height: 100vh;
   display: flex;
-  background: #4020b457;
+  background: #2048b47a;
 }
 
 .memory-game {
@@ -49,11 +49,12 @@ body {
 .back-face {
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 10px;
   position: absolute;
   border-radius: 5px;
-  background: #1C7CCC;
+  background: #efb730;
   backface-visibility: hidden;
+  border: 5px solid #030305;
 }
 
 .front-face {
@@ -66,7 +67,7 @@ body {
   bottom: 0;
   position: fixed;
   z-index: 200;
-  top: 90%;
+  top: 85%;
   
 }
 .top-po{
@@ -142,6 +143,7 @@ body {
   <title>Memory Game</title>
 
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Permanent+Marker&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -211,7 +213,7 @@ body {
       <form action='/zeni/zeni/add0' id="myform0" method="POST"> 
     
         <div id="0point">
-          ยินดีด้วย!!!คุณได้รับ เกลือ 1 Ea
+          <p style="font-family: 'Permanent Marker', cursive;font-size: 35px;">Disappointed!!! Let's try again</p> 
           <input type="image" id="ku" alt="Login" src="https://www.pngmart.com/files/3/Submit-Button-PNG-Transparent-Image.png" width="100px" style="left: 0; margin-left: 0;">
           </div>
         </form>
@@ -219,7 +221,7 @@ body {
   <form action='/zeni/zeni/add1' id="myform1" method="POST"> 
     
     <div id="1point">
-      ยินดีด้วย!!!คุณได้รับ 1 Coin
+      <p style="font-family: 'Permanent Marker', cursive;font-size: 35px;">Congratulations!!! you earned 1 point</p> 
       <input type="image" id="ku" alt="Login" src="https://www.pngmart.com/files/3/Submit-Button-PNG-Transparent-Image.png" width="100px" style="left: 0; margin-left: 0;">
       </div>
     </form>
@@ -227,7 +229,7 @@ body {
   <form action='/zeni/zeni/add5' id="myform5" method="POST"> 
 
   <div id="5point">
-    ยินดีด้วย!!!คุณได้รับ 5 Coin
+    <p style="font-family: 'Permanent Marker', cursive;font-size: 35px;">Congratulations!!! you earned 5 point</p> 
     < <input type="image" id="ku" alt="Login" src="https://www.pngmart.com/files/3/Submit-Button-PNG-Transparent-Image.png" width="100px" style="left: 0; margin-left: 0;">
     </div>
   </form>
@@ -235,7 +237,7 @@ body {
   <form action='/zeni/zeni/add10' id="myform10" method="POST"> 
 
     <div id="10point">
-      ยินดีด้วย!!!คุณได้รับ 10 Coin
+      <p style="font-family: 'Permanent Marker', cursive;font-size: 35px;">Congratulations!!! you earned 10 point</p> 
       <input type="image" id="ku" alt="Login" src="https://www.pngmart.com/files/3/Submit-Button-PNG-Transparent-Image.png" width="100px" style="left: 0; margin-left: 0;">
       </div>
     </form>
@@ -262,9 +264,9 @@ body {
         </div>
 
       <% }}%>
-      <div class="top-po">
+      <div class="top-po" style="font-family: 'Fredoka One', cursive;">
         <center>
-        รอบเล่นที่เหลือ =  <%= currentUser.free %> รอบ <br>
+       <p style="font-family: 'Permanent Marker', cursive;">Round =  <%= currentUser.free %> </p>  <br>
         <a href="/zeni">
             <img id="ku" src="https://lh3.googleusercontent.com/sjY0YeMySx9TQOFFJgbRa-hJlFICKIKy2sELJB1z4MCwKRxlXNkhvS5G72ZHvK4sqA" width="50px" style="left: 0; margin-left: 0;">
         </a>

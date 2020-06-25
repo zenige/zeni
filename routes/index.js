@@ -1,3 +1,5 @@
+const user = require('../models/user');
+
 const express = require('express'),
       router = express.Router();
       passport = require('passport'),
@@ -13,7 +15,7 @@ router.get('/login', function(req,res){
     res.render('login');
 });
 router.post('/login', passport.authenticate('local',{
-    successRedirect: '/Portfolio',
+    successRedirect: '/profile',
     failureRedirect: 'login'
   }),function(req, res){
   });
@@ -26,7 +28,6 @@ router.post('/login', passport.authenticate('local',{
 
 router.get('/logout', function(req,res){
     req.logout();
-    req.flash('success','You log out successfully');
     res.redirect('/');
 });
 
@@ -44,9 +45,7 @@ router.post('/signup', function(req,res){
             return res.render('signup');
         }
         passport.authenticate('local')(req,res,function(){
-            console.log(user);
-            req.flash('success','Welcome , ' + user.username);
-            res.redirect('/Portfolio');
+            res.redirect('/profile');
         });
     });
 });
@@ -84,9 +83,32 @@ router.get("/profile",middleware.isLoggedIn, function(req,res){
     })
 });
 
+
+
 router.get('/game',middleware.isLoggedIn ,function(req,res){
-    console.log("Free = "+req.user.free);
     res.render("game",{free: req.user.free});
+});
+
+router.get('/topup',middleware.isLoggedIn ,function(req,res){
+    res.render("topup",{free: req.user.free});
+});
+
+router.get('/topup',middleware.isLoggedIn ,function(req,res){
+    res.render("topup",{free: req.user.free});
+});
+
+router.post("/topUp/:id", function(req,res){
+    var top = req.body.topup/10;
+    var coinn = req.user.coin+top
+    user.findByIdAndUpdate(req.params.id, {coin:coinn},function(err,updatePic){
+        if(err){
+            res.redirect('/zeni');
+            console.log(err);
+        }else{
+            
+            res.redirect('/zeni');
+        }
+    })
 });
 
 

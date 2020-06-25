@@ -15,7 +15,7 @@
           
       
         function myFunction2() {
-          console.log('dasda');
+   
           alert("You have no coin");
          
           
@@ -146,7 +146,7 @@ h1{
     <body>
         <div class="content">
         
-<% console.log(zeni.image);%>
+
         
         <div class="watermarked">
             <img src="../<%= zeni.image %>" alt="Photo" class="img-fluid" width="50%">
@@ -157,7 +157,7 @@ h1{
              <div>
                
               <form action='/zeni/zeni/pay' id="myform" method="POST" class="btn-d ">
-                <%  console.log(currentUser);%>
+              
               <% if((currentUser.coin>=10)||(currentUser.rank == "admin")) { %>
              
               <a href="/<%= zeni.image %>"  onclick="myFunction3()"  download  ><i class="fas fa-download"></i> download </a>

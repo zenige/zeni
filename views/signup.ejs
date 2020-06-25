@@ -50,6 +50,20 @@ input[type=text]:focus, input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }
+/* Full-width input fields */
+input[type=email], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=email]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
 
 /* Set a style for the submit button */
 .btn {
@@ -79,11 +93,11 @@ b{color:white;}
     <h1>Cheate your account</h1>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="mail" required>
+    <input type="email" placeholder="Enter Email" name="mail" required>
     <label for="username"><b>Username</b></label>
-    <input type='text'  placehoder="Username" name='username' required maxlength="12">
+    <input type='text'  placeholder="Enter Username" name='username' required maxlength="12">
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
+    <input type="password" placeholder="Enter Password" name="password" required minlength="6">
     <label for="Fname"><b>Firstname</b></label>
     <input type="text" placeholder="Enter Firstname" name="Firstname" required>
     <label for="lname"><b>Lastname</b></label>

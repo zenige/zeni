@@ -306,7 +306,7 @@ router.post("/zeni/add0",middleware.isLoggedIn, function(req,res){
       res.redirect("/zeni");
     });
 
-});
+
 
 
 

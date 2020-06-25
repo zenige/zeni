@@ -80,25 +80,20 @@ router.post("/uploadphoto",upload.single('myImage'),(req,res) =>{
   //     imname:req.file.filename
 
   // };
-  
-  db.collection('users').updateOne(req.user,{$set:{imname:req.file.filename}},(err,result) => {
-      console.log(result);
-      if(err) return console.log(err);
-      console.log("save to database");
+  user.findByIdAndUpdate(req.user.id,{imname:req.file.filename},function(err,updatePic){
 
-    
-   
+    res.redirect('/profile');
   })
-  res.redirect('/profile');
+  
+  
 })
 
 router.post("/uploadphotoo",(req,res) =>{
   var i_fname = req.body.Firstname;
   var i_lname = req.body.Lastname;
-  console.log("aaaallll"+req.user.id);
   user.findByIdAndUpdate(req.user.id,{Firstname:req.body.Firstname,Lastname:req.body.Lastname,mail:req.body.mail},function(err,updatePic){
 
-          res.redirect('/zeni');
+          res.redirect('/profile');
           console.log(err);
       
   })
@@ -124,7 +119,7 @@ router.post('/uploadphotosell', upload.single('image'), function(req,res){
           await newpic.tag.push(tag);
         }
         await newpic.save(function(err,success){
-          console.log(success);
+
         });
         console.log("save");
         res.redirect('/zeni');
@@ -175,7 +170,7 @@ router.get('/profile', function(req,res){
 
 router.post('/profile', function(req,res){
   db.collection('users').updateOne(req.user,{$set:{Firstname:req.body.fname,Lastname:req.body.lname,mail:req.body.mail}},(err,result) => {
-      console.log(result);
+
       if(err) return console.log(err);
       console.log("save to database");
   })
