@@ -25,7 +25,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(methodOverride("_method"));
-app.use(flash());
+app.use(flash()); 
 //seedDB();
 
 app.use(require('express-session')({
